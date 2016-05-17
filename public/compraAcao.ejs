@@ -1,0 +1,39 @@
+<html>
+	<body>
+		<div style="width: 100%; height: 5%;  background-color: #0d73b8">
+			Blá
+			<div>
+				<a href="/login">Home</a>
+			</div>
+		</div>
+		<div>
+			<table>
+				<tr>
+					<th>Option</th>
+					<th>Code</th>
+					<th>Price Actual</th>
+					<th>Price Buy</th>
+				</tr>
+				<% for(var i=0; i<acoes.length; i++) {%>
+					<tr>
+						<td><%= i %></td>
+						<td><%= acoes[i].code %></td>
+						<td><%= acoes[i].price %></td>
+						<td><%= acoes[i].price_buy %></td>
+					</tr>
+				<% } %>
+			</table>
+		</div>
+		<div>
+			<form action="http://localhost:10000/compraAcao_get" id = "myForm" method="GET">
+				<input type = "text" name = "option" placeholder = "Option"> <br>
+				<input type = "text" name = "amount" placeholder = "Amount"> <br>
+				<input type = "text" name = "price" placeholder = "Price"> <br>
+				<input type="submit" value="Buy" onclick = "/compraAcao">
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript">
+		document.getElementById("myForm").reset();
+	</script>
+</html>
